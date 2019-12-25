@@ -17,4 +17,17 @@ javascript code example sharing , research used only.
     - Russian
 
 
-- Run java_script hello world
+- Run Example_Date_Time.html
+    - click function
+    - afficher avec id
+    - Time function
+
+
+- Run Example_Date_Time_Function_Input_Output.html
+    - click function
+    - afficher avec id
+    - Time function
+    - customized function avec return
+    - customized function avec input element id
+
+---
