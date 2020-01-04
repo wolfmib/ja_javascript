@@ -1,0 +1,43 @@
+/* selector example */
+body {
+  color: green;
+}
+
+h1,
+h2 {
+  color: blue;
+  font-size: 3.5rem;
+}
+
+div {
+  background: darkred;
+}
+
+/* id example , id shall be unique !!!!*/
+#heading_title {
+  color: orange;
+  background: black;
+  font-size: 40px;
+}
+
+#heading_footer {
+  color: gray;
+  background: black;
+}
+
+/* class example */
+.green_class {
+  color: darkgreen;
+}
+
+.red_class {
+  color: darkred;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}

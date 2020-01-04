@@ -31,3 +31,9 @@ javascript code example sharing , research used only.
     - customized function avec input element id
 
 ---
+
+
+## History
+---
+
+20-01-04- Adjouter html_css_lab_folder
