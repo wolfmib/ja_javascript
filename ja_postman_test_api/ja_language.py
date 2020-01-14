@@ -98,6 +98,23 @@ if __name__ == '__main__':
     _info = translator.show_info()
     print(_info)
 
+
+    print("\n")
+    print("load pickle example:")
+    print("-----------------------------------------")
+    print("\n\n")
+    print("try:")
+    print("     ja_lan_df = pd.read_pickle('ja_lan_env.pkl')")
+    print("     apply_lan = ja_lan_df['ja_lan'][0]")
+    print("     print(\"[INFO]: Your apply language is {%s}\"%apply_lan)")
+    print("except:")
+    print("     print(\"[INFO]: No ja_lan_env.pkl found !\")")
+    print("     print(\"Set language as default 'English' \")")
+    print("\n")
+    print("---------------------------------------------")
+    print("\n\n")
+
+
    
 
     for any_language in translator.language_dict:
