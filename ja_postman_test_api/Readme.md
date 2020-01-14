@@ -19,51 +19,7 @@ Size:                57.3 KB
 ### test_get_api_par_url_statuscode.py
 
 ---
-- Summary:
--------  8 run--------------------------------
-Status code:         200
-Time:                75.8 ms
-Size:                57.3 KB
-Is JSON format:      False 
------------------------------------------------
-   status_code       time    size  is_json             url
-0          200  75.798035  57.344    False  www.google.com
--------  9 run--------------------------------
-Status code:         200
-Time:                69.7 ms
-Size:                57.3 KB
-Is JSON format:      False 
------------------------------------------------
-   status_code       time    size  is_json             url
-0          200  69.737911  57.344    False  www.google.com
-------- 10 run--------------------------------
-Status code:         200
-Time:                70.9 ms
-Size:                57.3 KB
-Is JSON format:      False 
------------------------------------------------
-   status_code       time    size  is_json             url
-0          200  70.885181  57.344    False  www.google.com
-
-
-
-Die durchschnittliche Zeit ist
- 73.13 ms
-
------------------------------pickle_file-----------------------------
-  status_code       time    size is_json             url
-0         200  85.334063  57.344   False  www.google.com
-1         200  72.221041  57.344   False  www.google.com
-2         200  72.214842  57.344   False  www.google.com
-3         200  73.260069  57.344   False  www.google.com
-4         200  67.763090  57.344   False  www.google.com
-5         200  75.457096  57.344   False  www.google.com
-6         200  68.665981  57.344   False  www.google.com
-7         200  75.798035  57.344   False  www.google.com
-8         200  69.737911  57.344   False  www.google.com
-9         200  70.885181  57.344   False  www.google.com
-Speichern Sie die Datei in Beize: ja_test_get_summary.pickle
-###########################################################################
+![Image](demo/ja_test_get_par_url.jpg)
 
 
 ![Demo](demo/ja_test_get_api_demo.mp4)
