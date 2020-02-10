@@ -34,6 +34,23 @@
             <li>use var_dom_et_for_04.todo_list.push({text: "New item"}) to see changes</li>
 
         </div>
+      
+
+        <!-- Handling User Input -->
+        <!-- To let users interact with your app, we can use the v-on directive 
+            to attach event listeners that invoke methods on our Vue instances:-->
+
+        <p><br></p>
+        <p><br></p>
+        <p>----------------Handling User Input--------------------------------------</p>
+        <div id="app-5">
+            <p> {{ message }} </p>
+            <button v-on:click="reverse_message_func"> Reverse Message Buttons</button>
+        </div>
+        <p>---------------------------------------------------------------------------</p>
+
+
+
         <script src="index.js"></script>
     </body>
 </html>
