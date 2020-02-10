@@ -15,8 +15,4 @@ C'est exaple pour html et css code
 ---
 quatre: trize: quaran  / tout: onze heures
 
-https://www.youtube.com
-
-watch?
-
-v=mU6anWqZJcc
+https://www.youtube.com/watch?v=mU6anWqZJcc

@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="app_01">
+            {{ message }}
+        </div>
+
+
+        <div id="app_02">
+            <span v-bind:title="message_02">
+                Hover your mouse over me for a few seconds
+                to see my dynamically bound title!    
+            </span>
+        </div>
+
+
+        <div id="app_loop_03">
+            <span v-if="seen"> Now you see me, parceque la 'seen' est true </span>
+        </div>
+
+
+        <div id="app_dom_et_for_04">
+            <ol>
+                <li v-for=" _value in todo_list">
+                    {{  _value.text}}
+                </li>
+            </ol>
+
+            <li>In your console:</li>
+            <li>use var_dom_et_for_04.todo_list.push({text: "New item"}) to see changes</li>
+
+        </div>
+        <script src="index.js"></script>
+    </body>
+</html>
+
+
