@@ -76,10 +76,11 @@ const slotMachine = {
   //Previous template, only one row
   template: "<div class='slot-machine'><button @click='start'>start</button> <div class='slot' v-for='slot in slots' ref='slots'> <h2>{{ slot.title }}</h2> <div class='slot__window'> <div class='slot__wrap'> <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div> <div class='slot__item slot__item--copy' >{{ slot.items[0] }}</div></div> </div> </div> </div>",
     
-  //Fail  
-  //template: "<div class='slot-machine'><button @click='start'>start</button> <div class='slot' v-for='slot in slots' ref='slots'><h2>{{ slot.title }}</h2><div class='slot__window' v-if='slot.row_index === 0'><div class='slot__wrap'><div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div><div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div></div></div><p><br</p><div class='slot__window' v-else-if='slot.row_index === 1'><div class='slot__wrap'><div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div><div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div></div></div><p><br></p><div class='slot__window' v-else-if='slot.row_index === 2'><div class='slot__wrap'><div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div><div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div></div></div></div></div>",
+  //test - 01 fail
+  //template: "<div class='slot-machine'><button @click='start'>start</button><div class='slot' v-for='slot in slots' ref='slots'><h2>{{ slot.title }}</h2><div style='position:fixed;top:20;left:20;'>    <div class='slot__window' v-if='slot.row_index === 0'>        <div class='slot__wrap'>            <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div> <div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div>        </div>    </div></div></div></div>",
 
-
+  // test-02: fail
+  //template: "<div class='slot-machine'><button @click='start'>start</button><div class='slot' v-for='slot in slots' ref='slots'>    <h2>{{ slot.title }}</h2>    <div class='slot__window' style='position:fixed;top:20;left:20;' v-if='slot.row_index === 0'>        <div class='slot__wrap'>            <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div>            <div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div>        </div>    </div></div></div>",
   methods: {
   	start: function() {
     

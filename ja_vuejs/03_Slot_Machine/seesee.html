@@ -37,25 +37,39 @@
 <div class='slot-machine'><button @click='start'>start</button>
     <div class='slot' v-for='slot in slots' ref='slots'>
         <h2>{{ slot.title }}</h2>
-        <div class='slot__window' v-if='slot.row_index === 0'>
-            <div class='slot__wrap'>
-                <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div>
-                <div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div>
-            </div>
-        </div>
-        <p><br</p> 
-        <div class='slot__window' v-else-if='slot.row_index === 1'>
+        <div style='position:fixed;top:20;left:20;'>
+            <div class='slot__window' v-if='slot.row_index === 0'>
                 <div class='slot__wrap'>
                     <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div>
                     <div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div>
                 </div>
+            </div>
+       
         </div>
-    <p><br></p>
-    <div class='slot__window' v-else-if='slot.row_index === 2'>
-        <div class='slot__wrap'>
-            <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div>
-            <div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div>
-        </div>
+        
+        <div style='position:fixed;top:220;left:20;'>
+            <div class='slot__window' v-if='slot.row_index === 1'>
+                    <div class='slot__wrap'>
+                        <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div>
+                        <div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div>
+                    </div>
+            </div>
+        </div>      
     </div>
+</div>
+
+
+
+<div class='slot-machine'><button @click='start'>start</button>
+    <div class='slot' v-for='slot in slots' ref='slots'>
+        <h2>{{ slot.title }}</h2>
+        <div style='position:fixed;top:20;left:20;'>
+            <div class='slot__window' v-if='slot.row_index === 0'>
+                <div class='slot__wrap'>
+                    <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div>
+                    <div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
