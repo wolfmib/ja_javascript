@@ -45,3 +45,12 @@ var var_app_v_on = new Vue({
         }
     }
 })
+
+
+// Input 
+var var_v_model = new Vue({
+    el: '#app-v-model',
+    data:{
+        message: "Bonjour Vue!"
+    }
+})

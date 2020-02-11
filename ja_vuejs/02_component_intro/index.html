@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+       
+
+        <!-- Component Example-->
+
+        <p><br></p>
+        <p><br></p>
+        <p>---------------- Component Example--------------------------------------</p>
+        <div id="app_comp">
+            <ol>
+                <todo-item 
+                    v-for='any_instance in product_list'
+                    v-bind:todo='any_instance'
+                    v-bind:key='any_instance.id'
+                ></todo-item>
+            </ol>
+        </div>
+        <p>---------------------------------------------------------------------------</p>
+
+      
+
+
+        <script src="index.js"></script>
+    </body>
+</html>
+
+
