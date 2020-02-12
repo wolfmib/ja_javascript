@@ -33,54 +33,41 @@ const slotMachine = {
         ],
         curr_pos:0,
         row_index: 0
-      }, {
-      	title: "Col3",
-        items: [
-        	"cycling",
-          "walking",
-          "swimming",
-          "flying",
-        ],
-        curr_pos: 0,
-        row_index: 1
-      }, {
-      	title: "Col4",
-        items: [
-        	"at home",
-          "at work",
-          "at school",
-          "at the gym",
-          "at the park",
-          "at the beach",
-          "at the sidewalk",
-          "at the city",
-        ],
-        curr_pos:0,
-        row_index: 2
-      }, {
-      	title: "Col5",
-        items: [
-        	"cycling",
-          "walking",
-          "swimming",
-          "flying",
-        ],
-        curr_pos: 0,
-        row_index: 2
-      }],
+        }, {
+          title: "Col1",
+          items: [
+            "today",
+            "next week",
+            "last year",
+            "tomorrow",
+            "yesterday",
+          ],
+          curr_pos: 0,
+          row_index: 1
+        }, {
+          title: "Col2",
+          items: [
+            "at home",
+            "at work",
+            "at school",
+            "at the gym",
+            "at the park",
+            "at the beach",
+            "at the sidewalk",
+            "at the city",
+          ],
+          curr_pos: 0,
+          row_index: 1
+        }],
       opts: null,
       startedAt: null,
     }
   },
   
   //Previous template, only one row
-  template: "<div class='slot-machine'><button @click='start'>start</button> <div class='slot' v-for='slot in slots' ref='slots'> <h2>{{ slot.title }}</h2> <div class='slot__window'> <div class='slot__wrap'> <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div> <div class='slot__item slot__item--copy' >{{ slot.items[0] }}</div></div> </div> </div> </div>",
-    
-  //test - 01 fail
-  //template: "<div class='slot-machine'><button @click='start'>start</button><div class='slot' v-for='slot in slots' ref='slots'><h2>{{ slot.title }}</h2><div style='position:fixed;top:20;left:20;'>    <div class='slot__window' v-if='slot.row_index === 0'>        <div class='slot__wrap'>            <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div> <div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div>        </div>    </div></div></div></div>",
+  //template: "<div class='slot-machine'><button @click='start'>start</button> <div class='slot' v-for='slot in slots' ref='slots'> <h2>{{ slot.title }}</h2> <div class='slot__window'> <div class='slot__wrap'> <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div> <div class='slot__item slot__item--copy' >{{ slot.items[0] }}</div></div> </div> </div> </div>",
+  template: "<div class='slot-machine'><button @click='start'>start</button>    <div style='position:absolute;top:60;left:60;'>        <div class='slot' v-for='slot in slots' ref='slots'>            <h2 v-if='slot.row_index === 0'>{{ slot.title }}</h2>            <div class='slot__window' v-if='slot.row_index === 0'>                <div class='slot__wrap'>                    <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div>                    <div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div>                </div>            </div>        </div>    </div>    <div style='position:absolute;top:400;left:60;'>        <div class='slot' v-for='slot in slots' ref='slots'>            <div class='slot__window' v-if='slot.row_index === 1'>                <div class='slot__wrap'>                    <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div>                    <div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div>                </div>            </div>        </div>    </div></div>",
 
-  // test-02: fail
-  //template: "<div class='slot-machine'><button @click='start'>start</button><div class='slot' v-for='slot in slots' ref='slots'>    <h2>{{ slot.title }}</h2>    <div class='slot__window' style='position:fixed;top:20;left:20;' v-if='slot.row_index === 0'>        <div class='slot__wrap'>            <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div>            <div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div>        </div>    </div></div></div>",
   methods: {
   	start: function() {
     
@@ -91,6 +78,7 @@ const slotMachine = {
       this.opts = this.slots.map( (data, i) => {
       	
         const slot = this.$refs.slots[i]
+        console.log('Each i in slots.map = ',i)
         // Random Choice Here
         // ------- code ----
             //const choice = Math.floor( Math.random() * data.items.length )
@@ -125,6 +113,7 @@ const slotMachine = {
         
       })
       
+      console.log("opt size = ",this.opt.length)
       next( this.animate )
       
   	},
@@ -137,7 +126,7 @@ const slotMachine = {
       const timeDiff = timestamp - this.startedAt
       
       this.opts.forEach( opt => {
-      
+        console.log("Each opts = ",opt)
       	if (opt.isFinished) {
         	return
         }

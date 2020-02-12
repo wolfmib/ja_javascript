@@ -60,6 +60,8 @@
 
 
 
+
+<!-- Test Start 01-->
 <div class='slot-machine'><button @click='start'>start</button>
     <div class='slot' v-for='slot in slots' ref='slots'>
         <h2>{{ slot.title }}</h2>
@@ -73,3 +75,190 @@
         </div>
     </div>
 </div>
+
+<!-- Test one line code-->
+<div class='slot-machine'><button @click='start'>start</button><div class='slot' v-for='slot in slots' ref='slots'><h2>{{ slot.title }}</h2><div style='position:fixed;top:20;left:20;'>    <div class='slot__window' v-if='slot.row_index === 0'>        <div class='slot__wrap'>            <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div> <div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div>        </div>    </div></div></div></div>
+
+
+
+<!-- Test 02-->
+<div class='slot-machine'><button @click='start'>start</button>
+    <div class='slot' v-for='slot in slots' ref='slots'>
+        <h2>{{ slot.title }}</h2>
+        
+            <div class='slot__window' style='position:fixed;top:20;left:20;' v-if='slot.row_index === 0'>
+                <div class='slot__wrap'>
+                    <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div>
+                    <div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div>
+                </div>
+            </div>
+        
+    </div>
+</div>
+
+
+<!-- test_02 one line-->
+<div class='slot-machine'><button @click='start'>start</button><div class='slot' v-for='slot in slots' ref='slots'>    <h2>{{ slot.title }}</h2>    <div class='slot__window' style='position:fixed;top:20;left:20;' v-if='slot.row_index === 0'>        <div class='slot__wrap'>            <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div>            <div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div>        </div>    </div></div></div>
+
+<!-- test_03 add v-if in 'slot' class aussi-->
+<div class='slot-machine'><button @click='start'>start</button>
+    <div class='slot' v-for='slot in slots' v-if='slot.row_index === 0' ref='slots'>
+        <h2>{{ slot.title }}</h2>
+        <div class='slot__window' style='position:fixed;top:60;left:60;' v-if='slot.row_index === 0'>
+            <div class='slot__wrap'>
+                <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div>
+                <div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- test_03 one line-->
+<div class='slot-machine'><button @click='start'>start</button><div class='slot' v-for='slot in slots' v-if='slot.row_index === 0' ref='slots'><h2>{{ slot.title }}</h2>    <div class='slot__window' style='position:fixed;top:60;left:60;' v-if='slot.row_index === 0'><div class='slot__wrap'> <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div><div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div></div></div></div></div>
+
+
+
+
+<!-- test_04 tunning position for row_index est '0' seluement-->
+<div class='slot-machine'><button @click='start'>start</button>
+    <div class='slot' v-for='slot in slots' style='position:fixed;top:60;left:60;' v-if='slot.row_index === 0' ref='slots'>
+        <h2>{{ slot.title }}</h2>
+        <div class='slot__window'  v-if='slot.row_index === 0'>
+            <div class='slot__wrap'>
+                <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div>
+                <div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- test_04 one line-->
+<div class='slot-machine'><button @click='start'>start</button><div class='slot' v-for='slot in slots' style='position:fixed;top:60;left:60;' v-if='slot.row_index === 0'    ref='slots'>    <h2>{{ slot.title }}</h2>    <div class='slot__window' v-if='slot.row_index === 0'>        <div class='slot__wrap'>            <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div>            <div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div>        </div>    </div></div></div>
+
+
+<!-- test_05 try: creeate individual div style_row_index_0  et div style_row_index_1-->
+<div class='slot-machine'><button @click='start'>start</button>
+
+    <div style='position:fixed;top:60;left:60;'>
+        <div class='slot' v-for='slot in slots' v-if='slot.row_index === 0'ref='slots'>
+            <h2>{{ slot.title }}</h2>
+            <div class='slot__window' v-if='slot.row_index === 0'>
+                <div class='slot__wrap'>
+                    <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div>
+                    <div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style='position:fixed;top:300;left:60;'>
+        <div class='slot' v-for='slot in slots' v-if='slot.row_index === 1' ref='slots'>
+            <div class='slot__window' v-if='slot.row_index === 1'>
+                <div class='slot__wrap'>
+                    <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div>
+                    <div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- test_05 one line-->
+<div class='slot-machine'><button @click='start'>start</button>    <div style='position:fixed;top:60;left:60;'>        <div class='slot' v-for='slot in slots' v-if='slot.row_index === 0' ref='slots'>            <h2>{{ slot.title }}</h2>            <div class='slot__window' v-if='slot.row_index === 0'>                <div class='slot__wrap'>                    <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div>                    <div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div>                </div>            </div>        </div>    </div>    <div style='position:fixed;top:300;left:60;'>        <div class='slot' v-for='slot in slots' v-if='slot.row_index === 1' ref='slots'>            <div class='slot__window' v-if='slot.row_index === 1'>                <div class='slot__wrap'>                    <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div>                    <div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div>                </div>            </div>        </div>    </div></div>
+
+
+
+<!-- test_06 -->
+<div class='slot-machine'><button @click='start'>start</button>
+    <div style='position:fixed;top:60;left:60;'>
+        <div class='slot' v-for='slot in slots' v-if='slot.row_index === 0' ref='slots'>
+            <h2>{{ slot.title }}</h2>
+            <div class='slot__window' v-if='slot.row_index === 0'>
+                <div class='slot__wrap'>
+                    <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div>
+                    <div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- one line-->
+<div class='slot-machine'><button @click='start'>start</button>    <div style='position:fixed;top:60;left:60;'>        <div class='slot' v-for='slot in slots' v-if='slot.row_index === 0' ref='slots'>            <h2>{{ slot.title }}</h2>            <div class='slot__window' v-if='slot.row_index === 0'>                <div class='slot__wrap'>                    <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div>                    <div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div>                </div>            </div>        </div>    </div></div>
+
+
+<!-- test_07 -->
+<div class='slot-machine'><button @click='start'>start</button>
+    <div style='position:fixed;top:60;left:60;'>
+        <div class='slot' v-for='slot in slots'  ref='slots'>
+            <h2 v-if='slot.row_index === 0'>{{ slot.title }}</h2>
+            <div class='slot__window' v-if='slot.row_index === 0'>
+                <div class='slot__wrap'>
+                    <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div>
+                    <div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- test_07 one_line-->
+<div class='slot-machine'><button @click='start'>start</button>    <div style='position:fixed;top:60;left:60;'>        <div class='slot' v-for='slot in slots' ref='slots'>            <h2 v-if='slot.row_index === 0'>{{ slot.title }}</h2>            <div class='slot__window' v-if='slot.row_index === 0'>                <div class='slot__wrap'>                    <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div>                    <div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div>                </div>            </div>        </div>    </div></div>
+
+- Apres (remove the rowindex_1, row_index_2's data set , rolling ok)
+- Reason:
+    - @click='start' function call 'this.run'
+    - see the <div class='slot' v-for='slot in slots' ref='slots'> </div> (this include all slot data )
+
+
+Figure it out by the afternoon
+
+<!-- Test_08: try absolute -->
+<div class='slot-machine'><button @click='start'>start</button>
+    <div style='position:absolute;top:60;left:60;'>
+        <div class='slot' v-for='slot in slots' ref='slots'>
+            <h2 v-if='slot.row_index === 0'>{{ slot.title }}</h2>
+            <div class='slot__window' v-if='slot.row_index === 0'>
+                <div class='slot__wrap'>
+                    <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div>
+                    <div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- one Test_08 line-->
+<div class='slot-machine'><button @click='start'>start</button>    <div style='position:absolute;top:60;left:60;'>        <div class='slot' v-for='slot in slots' ref='slots'>            <h2 v-if='slot.row_index === 0'>{{ slot.title }}</h2>            <div class='slot__window' v-if='slot.row_index === 0'>                <div class='slot__wrap'>                    <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div>                    <div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div>                </div>            </div>        </div>    </div></div>
+
+
+<!-- test_08: try absolute , row_index 0 et 1-->
+<div class='slot-machine'><button @click='start'>start</button>
+    <div style='position:absolute;top:60;left:60;'>
+        <div class='slot' v-for='slot in slots' ref='slots'>
+            <h2 v-if='slot.row_index === 0'>{{ slot.title }}</h2>
+            <div class='slot__window' v-if='slot.row_index === 0'>
+                <div class='slot__wrap'>
+                    <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div>
+                    <div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style='position:absolute;top:400;left:60;'>
+        <div class='slot' v-for='slot in slots' ref='slots'>
+            <div class='slot__window' v-if='slot.row_index === 1'>
+                <div class='slot__wrap'>
+                    <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div>
+                    <div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Test_08: one line-->
+
