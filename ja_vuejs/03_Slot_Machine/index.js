@@ -58,11 +58,6 @@ items_r_0_col_1 = ['today','next_week','_last_year','tomorrow_','_yesterday']
 
 
 
-
-
-
-
-
 const slotMachine = {
 	data: function() {
   	return {
@@ -227,4 +222,18 @@ new Vue({
   	return {}
   },
   
+})
+
+
+var excel_agent = new Vue({
+  el: "#excel_app",
+
+  methods: {
+    excel_load: function(){
+      
+    },
+    faire_rien: function(){
+      console.log("Faire rien")
+    }
+  }
 })
