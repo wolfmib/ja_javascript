@@ -261,4 +261,64 @@ Figure it out by the afternoon
 
 
 <!-- Test_08: one line-->
+<div class='slot-machine'><button @click='start'>start</button>    <div style='position:absolute;top:60;left:60;'>        <div class='slot' v-for='slot in slots' ref='slots'>            <h2 v-if='slot.row_index === 0'>{{ slot.title }}</h2>            <div class='slot__window' v-if='slot.row_index === 0'>                <div class='slot__wrap'>                    <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div>                    <div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div>                </div>            </div>        </div>    </div>    <div style='position:absolute;top:400;left:60;'>        <div class='slot' v-for='slot in slots' ref='slots'>            <div class='slot__window' v-if='slot.row_index === 1'>                <div class='slot__wrap'>                    <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div>                    <div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div>                </div>            </div>        </div>    </div></div>
+
+
+<!--Test_09:  Add row_index in slot compment aussi-->
+<div class='slot-machine'><button @click='start'>start</button>
+    <div style='position:absolute;top:60;left:60;'>
+        <div class='slot' v-for='slot in slots' ref='slots' v-if='slot.row_index === 0'>
+            <h2 v-if='slot.row_index === 0'>{{ slot.title }}</h2>
+            <div class='slot__window' v-if='slot.row_index === 0'>
+                <div class='slot__wrap'>
+                    <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div>
+                    <div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style='position:absolute;top:400;left:60;'>
+        <div class='slot' v-for='slot in slots' ref='slots' v-if='slot.row_index === 1'>
+            <div class='slot__window' v-if='slot.row_index === 1'>
+                <div class='slot__wrap'>
+                    <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div>
+                    <div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- you better create one jira ticekt first.-->
+<!-- test_09: try in the afternoon, ok--> 
+<div class='slot-machine'><button @click='start'>start</button>    <div style='position:absolute;top:60;left:60;'>        <div class='slot' v-for='slot in slots' ref='slots' v-if='slot.row_index === 0'>            <h2 v-if='slot.row_index === 0'>{{ slot.title }}</h2>            <div class='slot__window' v-if='slot.row_index === 0'>                <div class='slot__wrap'>                    <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div>                    <div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div>                </div>            </div>        </div>    </div>    <div style='position:absolute;top:400;left:60;'>        <div class='slot' v-for='slot in slots' ref='slots' v-if='slot.row_index === 1'>            <div class='slot__window' v-if='slot.row_index === 1'>                <div class='slot__wrap'>                    <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div>                    <div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div>                </div>            </div>        </div>    </div></div>
+
+
+
+<!-- allign h2 to center-->
+<div class='slot-machine'><button @click='start'>start</button>
+    <div style='position:absolute;top:60;left:60;'>
+        <div class='slot' v-for='slot in slots' ref='slots' v-if='slot.row_index === 0'>
+            <h2 v-if='slot.row_index === 0' align='center'>{{ slot.title }}</h2>
+            <div class='slot__window' v-if='slot.row_index === 0'>
+                <div class='slot__wrap'>
+                    <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div>
+                    <div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style='position:absolute;top:400;left:60;'>
+        <div class='slot' v-for='slot in slots' ref='slots' v-if='slot.row_index === 1'>
+            <div class='slot__window' v-if='slot.row_index === 1'>
+                <div class='slot__wrap'>
+                    <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div>
+                    <div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 

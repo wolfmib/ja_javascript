@@ -5,21 +5,73 @@ const next = window.requestAnimationFrame ||
    window.oRequestAnimationFrame ||
    function(cb) { window.setTimeout(cb, 1000/60) }
 
+
+
+
+
+
+
+// Load Excel
+
+
+// Cree the data format:
+// Referenced link:   https://stackoverflow.com/questions/8238407/how-to-parse-excel-file-in-javascript-html5
+
+src = "https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js"
+src = "https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.js"
+
+
+//Cree une function 
+var ExcelToJSON = function(){
+  this.parseExcel = function(file){
+    var reader = new FileReader();
+
+    reader.onload = function(e){
+      var data = e.target.result;
+      var workbook = XLSX.read(data,{type: 'binary'});
+
+      workbook.SheetNames.forEach(function(sheetName){
+        //Here is your object
+        var XL_row_object = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
+        var json_object = JSOn.stringify(XL_row_object);
+        console.log(json_object)
+
+      })
+
+    };
+
+    reader.onerror = function(ex){
+      console.log(ex);
+    }
+
+    reader.readAsBinaryString(file);
+  };
+};
+
+
+
+
+items_r_0_col_1 = ['today','next_week','_last_year','tomorrow_','_yesterday']
+
+
+
+
+
+
+
+
+
+
+
 const slotMachine = {
 	data: function() {
   	return {
       slots: [{
         title: "Col1",
-        items: [
-          "today",
-          "next week",
-          "last year",
-          "tomorrow",
-          "yesterday",
-        ],
+        items: items_r_0_col_1,
         curr_pos: 0,
         row_index: 0
-      }, {
+      },{
       	title: "Col2",
         items: [
         	"at home",
@@ -34,30 +86,30 @@ const slotMachine = {
         curr_pos:0,
         row_index: 0
         }, {
-          title: "Col1",
-          items: [
-            "today",
-            "next week",
-            "last year",
-            "tomorrow",
-            "yesterday",
-          ],
-          curr_pos: 0,
-          row_index: 1
+        title: "Col1",
+        items: [
+          "aujourd'hui",
+          "la semain prochaine",
+          "l'anee deriner",
+          "demain",
+          "hier",
+        ],
+        curr_pos: 0,
+        row_index: 1
         }, {
-          title: "Col2",
-          items: [
-            "at home",
-            "at work",
-            "at school",
-            "at the gym",
-            "at the park",
-            "at the beach",
-            "at the sidewalk",
-            "at the city",
-          ],
-          curr_pos: 0,
-          row_index: 1
+        title: "Col2",
+        items: [
+          "chez moi",
+          "travalier",
+          "ecole",
+          "chez gym",
+          "chez park",
+          "de la mer",
+          "chez marcher",
+          "dans la centre-ville",
+        ],
+        curr_pos: 0,
+        row_index: 1
         }],
       opts: null,
       startedAt: null,
@@ -66,7 +118,10 @@ const slotMachine = {
   
   //Previous template, only one row
   //template: "<div class='slot-machine'><button @click='start'>start</button> <div class='slot' v-for='slot in slots' ref='slots'> <h2>{{ slot.title }}</h2> <div class='slot__window'> <div class='slot__wrap'> <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div> <div class='slot__item slot__item--copy' >{{ slot.items[0] }}</div></div> </div> </div> </div>",
-  template: "<div class='slot-machine'><button @click='start'>start</button>    <div style='position:absolute;top:60;left:60;'>        <div class='slot' v-for='slot in slots' ref='slots'>            <h2 v-if='slot.row_index === 0'>{{ slot.title }}</h2>            <div class='slot__window' v-if='slot.row_index === 0'>                <div class='slot__wrap'>                    <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div>                    <div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div>                </div>            </div>        </div>    </div>    <div style='position:absolute;top:400;left:60;'>        <div class='slot' v-for='slot in slots' ref='slots'>            <div class='slot__window' v-if='slot.row_index === 1'>                <div class='slot__wrap'>                    <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div>                    <div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div>                </div>            </div>        </div>    </div></div>",
+
+  //Ok
+  template: "<div class='slot-machine'><button @click='start'>start</button>    <div style='position:absolute;top:60;left:60;'>        <div class='slot' v-for='slot in slots' ref='slots' v-if='slot.row_index === 0'>            <h2 v-if='slot.row_index === 0'  align='center'>{{ slot.title }}</h2>            <div class='slot__window' v-if='slot.row_index === 0'>                <div class='slot__wrap'>                    <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div>                    <div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div>                </div>            </div>        </div>    </div>    <div style='position:absolute;top:400;left:60;'>        <div class='slot' v-for='slot in slots' ref='slots' v-if='slot.row_index === 1'>            <div class='slot__window' v-if='slot.row_index === 1'>                <div class='slot__wrap'>                    <div class='slot__item' v-for='opt in slot.items'>{{ opt }}</div>                    <div class='slot__item slot__item--copy'>{{ slot.items[0] }}</div>                </div>            </div>        </div>    </div></div>",
+
 
   methods: {
   	start: function() {
@@ -77,8 +132,11 @@ const slotMachine = {
     	  		
       this.opts = this.slots.map( (data, i) => {
       	
+        // Load slot from here 
+        
         const slot = this.$refs.slots[i]
         console.log('Each i in slots.map = ',i)
+        console.log(slot)
         // Random Choice Here
         // ------- code ----
             //const choice = Math.floor( Math.random() * data.items.length )
@@ -113,7 +171,8 @@ const slotMachine = {
         
       })
       
-      console.log("opt size = ",this.opt.length)
+      console.log("opt size = ",this.opts)
+      console.log("Hello")
       next( this.animate )
       
   	},
