@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+service GameSlotService {
+    rpc obtenir_slot_object (Slot_Object_Ping) returns (Slot_Object_Pong){}
+}
+
+
+message Slot_Object_Ping{
+    int32 run_id = 1;
+}
+
+
+message Slot_Object_Pong{
+    int32 run_id = 1;
+}
+

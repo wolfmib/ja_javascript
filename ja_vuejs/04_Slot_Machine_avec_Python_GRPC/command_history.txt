@@ -1,0 +1,13 @@
+// by typing echo your_command >> command_history.txt (Add the data )
+virtualenv -p python3 env
+pip3 install grpcio
+pip3 install grpcio-tools
+
+echo "Please installed proto3 extension in your VS code!!"
+
+pip3 freeze > requirement.txt
+
+python3 -m grpc_tools.protoc -I./proto --python_out=. --grpc_python_out=. ./proto/gameslot.proto
+echo "created _pb2.py"
+echo "crated _po2_grpc.py"
+python3 server.py
