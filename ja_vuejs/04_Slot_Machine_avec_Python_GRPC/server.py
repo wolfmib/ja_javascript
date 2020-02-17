@@ -17,7 +17,8 @@ class Listener(gameslot_pb2_grpc.GameSlotServiceServicer):
     def obtenir_slot_object(self, request,context):
         self.counter += 1
         
-        print("Got you")
+        if self.counter % 1000 == 0:
+            print("Got you, the counter = ",self.counter)
 
         return gameslot_pb2.Slot_Object_Pong(run_id=request.run_id + 1)
 
