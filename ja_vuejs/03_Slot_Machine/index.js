@@ -19,6 +19,7 @@ const next = window.requestAnimationFrame ||
 
 src = "https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js"
 src = "https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.js"
+src = "jqyery-1.4.2min.js"
 
 
 //Cree une function 
@@ -50,9 +51,80 @@ var ExcelToJSON = function(){
 
 
 
+//Example Col Row
+/*
+          col1    col2    col3    col4    col5
+row_0
+row_1
+row_2
 
+*/
+
+
+
+// [Input-Method-Un: Utiliser configure text dans la code]
 items_r_0_col_1 = ['today','next_week','_last_year','tomorrow_','_yesterday']
 
+// Initial global variable example
+var items_r_0_col_2 = []
+
+
+// [Input-Method-Deux]: Utiliser json_file
+// Referenced Link: https://stackoverflow.com/questions/7346563/loading-local-json-file
+// Rrefernexed LInk for how to load jquery :https://www.digitalocean.com/community/tutorials/an-introduction-to-jquery
+    /*
+      <script>
+        var myJSON = '{"name":"John", "age":31, "city":"New York"}';
+        var myObj = JSON.parse(myJSON);
+        document.getElementById("demo").innerHTML = myObj.name;
+        </script>
+    */
+
+$.getJSON('./rolling_table.json',function(json){
+  console.log("[Jean]: Le JOSN text est ...");
+  console.log(json);
+  console.log("-----------------------------");
+  json.forEach(x => {console.log(x.name,x.values); });
+}); 
+
+
+load_all_json_object = $.getJSON('./rolling_table.json',function(json){
+  var objects = [];
+  // For loop each object example
+  for (var i in json){
+
+    console.log('typeof json[i]   = ',(typeof json[i]))
+    console.log('json[i]          =',json[i])
+    console.log("test_i           = ",i)
+
+    _obj_ = json[i]
+    if (_obj_.name == "row_0_col_2"){
+      console.log("Got the key   =",_obj_.name)
+      console.log("with value    =",_obj_.values)
+
+      // For loop each object's values and push into array example
+      _obj_.values.forEach(function(item,index,array){
+        console.log("Add the   ",item,"  with index ",index," into items_r_0_col_2 by push ")
+        items_r_0_col_2.push(item)
+      })
+    }  
+  };
+})
+
+
+
+/* Not used 
+fetch('rolling_table.json')
+  .then(response => response.json())
+  .then(json => console.log(json));
+//items_r_0_col_2 = 
+*/
+
+
+console.log("[Jason]: load_all_json_object as foolowing...")
+console.log(load_all_json_object)
+console.log("[Jason]: the rolling_symbols from jsonfiles ...")
+console.log(items_r_0_col_2)
 
 
 
@@ -63,21 +135,12 @@ const slotMachine = {
   	return {
       slots: [{
         title: "Col1",
-        items: items_r_0_col_1,
+        items: items_r_0_col_1,  // [Input-Method-Un: Utiliser configure text dans la code]
         curr_pos: 0,
         row_index: 0
       },{
       	title: "Col2",
-        items: [
-        	"at home",
-          "at work",
-          "at school",
-          "at the gym",
-          "at the park",
-          "at the beach",
-          "at the sidewalk",
-          "at the city",
-        ],
+        items: items_r_0_col_2,  // [Input-Method-Deux]: Utiliser json_file 
         curr_pos:0,
         row_index: 0
         }, {
@@ -225,15 +288,3 @@ new Vue({
 })
 
 
-var excel_agent = new Vue({
-  el: "#excel_app",
-
-  methods: {
-    excel_load: function(){
-      
-    },
-    faire_rien: function(){
-      console.log("Faire rien")
-    }
-  }
-})
