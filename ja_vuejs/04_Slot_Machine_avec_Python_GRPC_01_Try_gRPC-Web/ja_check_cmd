@@ -1,0 +1,24 @@
+netstat -vanp tcp | grep 3000
+netstat -vanp tcp
+kill -9 24576
+
+npx webpack --mode development client.js
+
+
+echo "run server" 
+node server.js &
+
+docker build -t helloworld/envoy -f ./envoy.Dockerfile .
+docker run -d -p 8080:8080 -p 9901:9901 --network=host helloworld/envoy
+
+
+docker ps
+docker kill 492edf253538
+
+
+
+docker run -d -p 8080:8080 helloworld/envoy
+
+
+
+
