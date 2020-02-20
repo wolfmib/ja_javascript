@@ -3,7 +3,7 @@ import grpc
 import gameslot_pb2
 import gameslot_pb2_grpc
 import time
-import threading 
+import threading
 
 
 # Key: __grpc -> __Servicer
@@ -16,7 +16,7 @@ class Listener(gameslot_pb2_grpc.GameSlotServiceServicer):
         # rpc obtenir_slot_object (Slot_Object_Ping) returns (Slot_Object_Pong){}
     def obtenir_slot_object(self, request,context):
         self.counter += 1
-        
+
         if self.counter % 1000 == 0:
             print("Got you, the counter = ",self.counter)
 
