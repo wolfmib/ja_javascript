@@ -8,15 +8,18 @@ const next = window.requestAnimationFrame ||
 
 
 
-
-
-
 // Cree the data format:
 // Referenced link:   https://stackoverflow.com/questions/8238407/how-to-parse-excel-file-in-javascript-html5
 
 src = "https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js"
 src = "https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.js"
 src = "jqyery-1.4.2min.js"
+
+<script type="module" src="js/js.js">
+    import { HelloRequest, HelloReply } from "./helloworld_pb";
+    import { Greeter } from "./helloworld_grpc_web_pb";
+</script>
+
 
 
 //Cree une function 
